@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+// import { store, persistor } from './redux/store';
+import { Route, Routes } from 'react-router-dom';
+import ContactForm from './components/ContactForm';
+import PokemonSelect from './components/PokemonSelect';
+import Review from './components/Review';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route exact path="/" element={<ContactForm />} />
+        <Route exact path="/pokemon-select" element={<PokemonSelect />} />
+        <Route exact path="/review" element={<Review />} />
+      </Routes>
     </div>
   );
 }

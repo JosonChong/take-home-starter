@@ -1,0 +1,30 @@
+.contact-form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  form {
+    display: grid;
+    gap: 10px;
+  }
+  
+  label,
+  input,
+  textarea {
+    width: 100%;
+  }
+  
+  button[type='submit'] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .form-error {
+    color: red;
+    margin-top: 10px;
+  }
+  
