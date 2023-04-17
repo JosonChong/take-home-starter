@@ -14,7 +14,7 @@ import questionBall from '../Question_Ball.png';
 const PokemonSelect = (props) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    
+
     const { pokemonList } = props;
     const [suggestions, setSuggestions] = useState([]);
     const [pokemonImageUrls, setPokemonImageUrls] = useState({});
@@ -49,7 +49,7 @@ const PokemonSelect = (props) => {
             selectPokemon(preselectedPokemon);
         }
 
-        if (params) {
+        if (window.location.search) {
             formData = {};
 
             formData.firstName = params.firstName;
@@ -78,6 +78,10 @@ const PokemonSelect = (props) => {
     }, [trie]);
 
     const validateContactForm = (form) => {
+        if (!form) {
+            return false;
+        }
+
         if (!form.firstName || form.firstName.length > 20 || !form.firstName.match(/^[A-Za-z]+$/)) {
             return false;
         }
@@ -161,7 +165,7 @@ const PokemonSelect = (props) => {
             console.log("last name: " + formData.lastName);
             console.log("phone number: " + formData.phoneNumber);
             console.log("address: " + formData.address);
-            console.log("favourite pokemon: " + formData.selectedPokemon);
+            console.log("favourite pokemon: " + selectedPokemon);
         }
     };
 
@@ -215,7 +219,7 @@ const PokemonSelect = (props) => {
             </Alert> : null}
             {formDataError ? <Alert severity="error">
                 <AlertTitle>Error</AlertTitle>
-                Seems like you haven't completed the contact form — <strong><a className={styles.errorLink} onClick={() => navigate('/')}>Click me to return</a></strong>
+                Seems like you haven't completed the contact form — <strong className={styles.errorLink} onClick={() => navigate('/')}>Click me to return</strong>
             </Alert> : null}
             {showOverlay ? <Overlay>
                 <div className={`${styles.linkContainer} roundedCorner`}>
@@ -230,14 +234,14 @@ const PokemonSelect = (props) => {
                     {selectedPokemon ? (
                         <div className={styles.selectedPokemon}>
                             <h2 className={styles.selectedPokemonName}>{selectedPokemon}</h2>
-                            <img className={`${styles.pokemonImage} ${isMobile ? styles.mobile : ""}`} src={selectedPokemonData.imageUrl} />
+                            <img className={`${styles.pokemonImage} ${isMobile ? styles.mobile : ""}`} alt={selectedPokemon} src={selectedPokemonData.imageUrl} />
                             <div className={styles.informationContainer}>
                                 <div>Weight: {selectedPokemonData.weight}</div>
                                 <div>Height: {selectedPokemonData.height}</div>
                             </div>
                         </div>)
                         : (<div>
-                            <img className={`${styles.questionBall} ${isMobile ? styles.mobile : ""}`} src={questionBall} />
+                            <img className={`${styles.questionBall} ${isMobile ? styles.mobile : ""}`} alt="Question ball" src={questionBall} />
                         </div>)}
                 </div>
                 <div className={`${styles.rightContainer} ${isMobile ? styles.mobile : ""}`}>

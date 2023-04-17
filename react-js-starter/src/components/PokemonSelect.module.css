@@ -21,22 +21,6 @@ h1 {
     cursor: pointer;
 }
 
-ul {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.selectedPokemonContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-}
-
 .selectedPokemon {
     position: absolute;
     top: 50%;
@@ -120,19 +104,6 @@ ul {
     border-color: #ef5b79;
 }
 
-.reviewForm {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.reviewForm.mobile {
-    width: 350px;
-}
-
-
 .nameContainer {
     width: 370px;
 }
@@ -173,6 +144,15 @@ ul {
 
 .noSelect {
     user-select: none;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .suggestionSquare {
@@ -235,12 +215,6 @@ ul {
     border: 0;
 }
 
-/* .buttonContainer .continueButton {
-    background-color: #ef5b79;
-    color: white;
-    border: 0;
-} */
-
 button:disabled {
     background-color: lightgray;
     border-color: lightgray;
@@ -251,5 +225,16 @@ button:disabled {
     height: 200px;
     background-color: white;
     text-align: center;
-    
+}
+
+.reviewForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.reviewForm.mobile {
+    width: 350px;
 }

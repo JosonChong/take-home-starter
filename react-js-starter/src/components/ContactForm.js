@@ -102,7 +102,7 @@ const ContactForm = () => {
         </div>
         {isMobile ? null
           : <div className={styles.containerRight}>
-            <img className={styles.image} src={pikachu} />
+            <img className={styles.image} alt="pikachu" src={pikachu} />
           </div>}
       </div>
     </div>
