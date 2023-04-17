@@ -40,7 +40,7 @@ const ContactForm = () => {
     <div className={styles.wrapper}>
       <div className={`${styles.container} ${isMobile ? styles.mobile : ""}`}>
         <div className={styles.contactFormContainer}>
-          <h2>Contact Form</h2>
+          <h2>About You</h2>
           <Box onSubmit={handleSubmit(onSubmit)}
             component="form"
             sx={{

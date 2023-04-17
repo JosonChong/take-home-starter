@@ -337,7 +337,7 @@ const PokemonSelect = (props) => {
             <div className={styles.buttonContainer}>
                 <button onClick={handleBack} className={styles.backButton}>Back</button>
                 <button onClick={toggleOverlay} disabled={formDataError} className={styles.saveButton}>Save</button>
-                <button onClick={(handleSubmit)} disabled={formDataError || submitted || !selectedPokemon} className={styles.continueButton}>Continue</button>
+                <button onClick={handleSubmit} disabled={formDataError || submitted || !selectedPokemon} className={styles.continueButton}>{isContinue ? "Submit" : "Continue"}</button>
             </div>
         </div>
     );
