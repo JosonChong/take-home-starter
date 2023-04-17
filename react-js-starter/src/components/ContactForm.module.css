@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  background: #f6f5f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  height: 100vh;
+  margin: -20px 0 50px;
+}
+
+.image {
+  margin: auto;
+  resize: none;
+  height: 350px;
+}
+textarea {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+  resize: none;
+  margin-bottom: 20px;
+}
+
+ .container {
+  background-color: #fff;
+  display: flex;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
+  position: relative;
+  overflow: hidden;
+  width: 768px;
+  max-width: 100%;
+  min-height: 480px;
+}
+
+.container.mobile {
+  display: block;
+  /* background: -webkit-linear-gradient(-329.41676653808deg , rgba(229.5,34.42,128.06,1) 0%, rgba(255,195.92,107.31,1) 100%);
+	background: -o-linear-gradient(-329.41676653808deg , rgba(229.5,34.42,128.06,1) 0%, rgba(255,195.92,107.31,1) 100%);
+	background: -moz-linear-gradient(-329.41676653808deg , rgba(229.5,34.42,128.06,1) 0%, rgba(255,195.92,107.31,1) 100%);
+	background: -ms-linear-gradient(-329.41676653808deg , rgba(229.5,34.42,128.06,1) 0%, rgba(255,195.92,107.31,1) 100%);
+	background: linear-gradient(-329.41676653808deg , rgba(229.5,34.42,128.06,1) 0%, rgba(255,195.92,107.31,1) 100%); */
+}
+
+.contactFormContainer {
+  flex-basis: 50%;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+.containerRight {
+  flex-basis: 50%;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: -webkit-linear-gradient(-329.41676653808deg , rgba(229.5,34.42,128.06,1) 0%, rgba(255,195.92,107.31,1) 100%);
+	background: -o-linear-gradient(-329.41676653808deg , rgba(229.5,34.42,128.06,1) 0%, rgba(255,195.92,107.31,1) 100%);
+	background: -moz-linear-gradient(-329.41676653808deg , rgba(229.5,34.42,128.06,1) 0%, rgba(255,195.92,107.31,1) 100%);
+	background: -ms-linear-gradient(-329.41676653808deg , rgba(229.5,34.42,128.06,1) 0%, rgba(255,195.92,107.31,1) 100%);
+	background: linear-gradient(-329.41676653808deg , rgba(229.5,34.42,128.06,1) 0%, rgba(255,195.92,107.31,1) 100%);
+}

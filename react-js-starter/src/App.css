@@ -28,10 +28,19 @@
   color: #61dafb;
 }
 
+.roundedCorner {
+  -ms-border-radius: 41px;
+  -o-border-radius: 41px;
+  -moz-border-radius: 41px;
+  -webkit-border-radius: 41px;
+  border-radius: 41px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

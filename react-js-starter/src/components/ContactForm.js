@@ -1,83 +1,110 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import pikachu from '../Char-pikachu.webp';
 
-import './ContactForm.css';
+import styles from './ContactForm.module.css';
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import { useForm } from "react-hook-form";
+import { useMediaQuery } from "react-responsive";
+import InputMask from "react-input-mask";
+
 
 const ContactForm = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [address, setAddress] = useState('');
-  const [formError, setFormError] = useState('');
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [phoneNumberError, setPhoneNumberError] = useState(false);
+  const isMobile = useMediaQuery({ query: "(max-width: 900px)" });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm();
 
-    // Perform form validation
-    if (!firstName || !lastName || !phoneNumber || !address) {
-      setFormError('All fields are required');
+  const onSubmit = (formData) => {
+    if (!phoneNumber.match(/^\([0-9]{3}\)[0-9]{3}-[0-9]{4}$/)) {
+      setPhoneNumberError(true);
       return;
     }
 
-    const formData = {
-      firstName,
-      lastName,
-      phoneNumber,
-      address,
-    };
+    formData.phoneNumber = phoneNumber;
 
-    console.log(formData);
-
-    dispatch({ type: 'SET_FORM_DATA', payload: { formData } });
+    dispatch({ type: 'SET_FORM_DATA', payload: formData });
     navigate('/pokemon-select');
   };
 
   return (
-    <div className="contact-form-container">
-      <h2>Contact Form</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="firstName">First Name:</label>
-        <input
-          type="text"
-          id="firstName"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          required
-        />
+    <div className={styles.wrapper}>
+      <div className={`${styles.container} ${isMobile ? styles.mobile : ""}`}>
+        <div className={styles.contactFormContainer}>
+          <h2>Contact Form</h2>
+          <Box onSubmit={handleSubmit(onSubmit)}
+            component="form"
+            sx={{
+              '& .MuiTextField-root': { m: 1, width: '80%' },
+            }}
+            noValidate
+            autoComplete="off">
+            <TextField
+              type="text"
+              label="First Name:"
+              required
+              {...register("firstName", {
+                required: true,
+                maxLength: 20,
+                pattern: /^[A-Za-z]+$/i
+              })}
+              error={!!errors?.firstName}
+              helperText={(errors?.firstName?.type === "required" && "This field is required")
+                || (errors?.firstName?.type === "maxLength" && "First name cannot exceed 20 characters")
+                || (errors?.firstName?.type === "pattern" && "Alphabetical characters only")} />
+            <TextField
+              type="text"
+              label="Last Name:"
+              required
+              {...register("lastName", {
+                required: true,
+                maxLength: 20,
+                pattern: /^[A-Za-z]+$/i
+              })}
+              error={!!errors?.lastName}
+              helperText={(errors?.lastName?.type === "required" && "This field is required")
+                || (errors?.lastName?.type === "maxLength" && "Last name cannot exceed 20 characters")
+                || (errors?.lastName?.type === "pattern" && "Alphabetical characters only")} />
+            <InputMask
+              mask="(999)999-9999"
+              onChange={(e) => setPhoneNumber(e.target.value)}
+            >
+              {() => <TextField type="tel"
+                label="Phone Number:"
+                error={phoneNumberError}
+                helperText={phoneNumberError ? "Invalid phone number" : null}
+                required 
+                />}
+            </InputMask>
+            <TextField
+              label="Address:"
+              required
+              multiline
+              maxRows={3}
+              {...register("address", {
+                required: true,
+              })}
+              error={!!errors?.address}
+              helperText={(errors?.address?.type === "required" && "This field is required")}
+            />
 
-        <label htmlFor="lastName">Last Name:</label>
-        <input
-          type="text"
-          id="lastName"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          required
-        />
-
-        <label htmlFor="phoneNumber">Phone Number:</label>
-        <input
-          type="tel"
-          id="phoneNumber"
-          value={phoneNumber}
-          onChange={(e) => setPhoneNumber(e.target.value)}
-          required
-        />
-
-        <label htmlFor="address">Address:</label>
-        <textarea
-          id="address"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          required
-        ></textarea>
-
-        <button type="submit">Continue</button>
-        {formError && <p className="form-error">{formError}</p>}
-      </form>
+            <button className={styles.button} type="submit">Continue</button>
+          </Box>
+        </div>
+        {isMobile ? null
+          : <div className={styles.containerRight}>
+            <img className={styles.image} src={pikachu} />
+          </div>}
+      </div>
     </div>
   );
 };
