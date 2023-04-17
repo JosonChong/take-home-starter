@@ -1,9 +1,9 @@
 # Pokemon App
-##To access the website:
+## To access the website:
 https://joson-pokemon-app.web.app
 
 ## Features
-### Utalized a Trie data structure to help in searching Pokemons
+### Utilized a Trie data structure to help in searching Pokemons
 [Link to the Trie object](react-js-starter/src/Trie.js)
 
 ### Store user submitted contact form and user's favourite Pokemon
