@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/take-home-starter/static/css/main.2a0f0798.css",
-    "main.js": "/take-home-starter/static/js/main.3dca31f2.js",
-    "static/js/787.c515b033.chunk.js": "/take-home-starter/static/js/787.c515b033.chunk.js",
-    "static/media/Question_Ball.png": "/take-home-starter/static/media/Question_Ball.847ff9ec0ffb65d18eef.png",
-    "static/media/Char-pikachu.webp": "/take-home-starter/static/media/Char-pikachu.118ab9607a4421535534.webp",
-    "index.html": "/take-home-starter/index.html",
-    "main.2a0f0798.css.map": "/take-home-starter/static/css/main.2a0f0798.css.map",
-    "main.3dca31f2.js.map": "/take-home-starter/static/js/main.3dca31f2.js.map",
-    "787.c515b033.chunk.js.map": "/take-home-starter/static/js/787.c515b033.chunk.js.map"
+    "main.css": "/static/css/main.2a0f0798.css",
+    "main.js": "/static/js/main.d7839ebe.js",
+    "static/js/787.c515b033.chunk.js": "/static/js/787.c515b033.chunk.js",
+    "static/media/Question_Ball.png": "/static/media/Question_Ball.847ff9ec0ffb65d18eef.png",
+    "static/media/Char-pikachu.webp": "/static/media/Char-pikachu.118ab9607a4421535534.webp",
+    "index.html": "/index.html",
+    "main.2a0f0798.css.map": "/static/css/main.2a0f0798.css.map",
+    "main.d7839ebe.js.map": "/static/js/main.d7839ebe.js.map",
+    "787.c515b033.chunk.js.map": "/static/js/787.c515b033.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2a0f0798.css",
-    "static/js/main.3dca31f2.js"
+    "static/js/main.d7839ebe.js"
   ]
 }
